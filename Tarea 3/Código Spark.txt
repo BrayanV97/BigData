@@ -1,0 +1,30 @@
+#Importamos librerias necesarias 
+from pyspark.sql import SparkSession, functions as F 
+# Inicializa la sesión de Spark 
+spark = SparkSession.builder.appName('Tarea3').getOrCreate() 
+# Define la ruta del archivo .csv en HDFS 
+file_path = 'hdfs://localhost:9000/Tarea3/rows.csv' 
+# Lee el archivo .csv 
+df = spark.read.format('csv').option('header','true').option('inferSchema', 'true').load(file_path) 
+#imprimimos el esquema 
+df.printSchema() 
+# Muestra las primeras filas del DataFrame 
+df.show() 
+# Estadisticas básicas 
+df.summary().show() 
+# Consulta: Seleccionamos la ciudad donde se haya presentado el delito de 'ARTICULO 269A. ACCESO ABUSIVO A UN SISTEMA INFORMATICO'
+print("Ciudades donde se haya presentado el delito de ARTICULO 269A. ACCESO ABUSIVO A UN SISTEMA INFORMATICO\n") 
+delito = df.filter(F.col('DESCRIPCION CONDUCTA') == "ARTICULO 269A. ACCESO ABUSIVO A UN SISTEMA INFORMATICO").select('DESCRIPCION CONDUCTA', 'MUNICIPIO', 'DEPARTAMENTO')
+delito.show() 
+# Ordenar filas por los valores en la columna "MUNICIPIO" en orden descendente 
+print("Valores ordenados de mayor a menor\n") 
+sorted_df = df.sort(F.col("MUNICIPIO").desc()) 
+sorted_df.show() 
+# Resumen de la cantidad de delitos según el municipio
+print("Resumen de la cantidad de delitos según el municipio\n")
+delitos_por_municipio = df.groupBy('MUNICIPIO').count().sort(F.col('count').desc())
+delitos_por_municipio.show()
+#Exportamos las consultas realizadas a csv
+delito.write.csv('delito_articulo_269A.csv', header=True)
+sorted_df.write.csv('municipio_ordenado.csv', header=True)
+delitos_por_municipio.write.csv('resumen_delitos_municipio.csv', header=True)
