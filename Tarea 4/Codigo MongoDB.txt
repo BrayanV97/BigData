@@ -1,0 +1,1086 @@
+mongosh
+Show dbs
+
+use RedSocial
+
+db.createCollection("Usuarios")
+db.createCollection("Publicaciones")
+db.createCollection("Mensajes")
+db.createCollection("Notificaciones")
+db.createCollection("Solicitud_Amistad")
+
+db.Usuarios.insertMany([
+  {
+    username: "user1",
+    email: "user1@example.com",
+    password: "hashedpassword1",
+    profile: {
+      firstName: "John",
+      lastName: "Doe",
+      birthDate: ISODate("1990-01-01"),
+      bio: "My first profile",
+      profilePictureUrl: "http://example.com/image1.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user2",
+    email: "user2@example.com",
+    password: "hashedpassword2",
+    profile: {
+      firstName: "Jane",
+      lastName: "Smith",
+      birthDate: ISODate("1992-02-02"),
+      bio: "Lover of coffee and cats.",
+      profilePictureUrl: "http://example.com/image2.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user3",
+    email: "user3@example.com",
+    password: "hashedpassword3",
+    profile: {
+      firstName: "Alice",
+      lastName: "Brown",
+      birthDate: ISODate("1991-03-03"),
+      bio: "Tech enthusiast.",
+      profilePictureUrl: "http://example.com/image3.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user4",
+    email: "user4@example.com",
+    password: "hashedpassword4",
+    profile: {
+      firstName: "Bob",
+      lastName: "Johnson",
+      birthDate: ISODate("1989-04-04"),
+      bio: "Music is life.",
+      profilePictureUrl: "http://example.com/image4.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user5",
+    email: "user5@example.com",
+    password: "hashedpassword5",
+    profile: {
+      firstName: "Charlie",
+      lastName: "Miller",
+      birthDate: ISODate("1995-05-05"),
+      bio: "Traveling the world.",
+      profilePictureUrl: "http://example.com/image5.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user6",
+    email: "user6@example.com",
+    password: "hashedpassword6",
+    profile: {
+      firstName: "David",
+      lastName: "Wilson",
+      birthDate: ISODate("1990-06-06"),
+      bio: "Fitness junkie.",
+      profilePictureUrl: "http://example.com/image6.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user7",
+    email: "user7@example.com",
+    password: "hashedpassword7",
+    profile: {
+      firstName: "Emily",
+      lastName: "Davis",
+      birthDate: ISODate("1994-07-07"),
+      bio: "Bookworm.",
+      profilePictureUrl: "http://example.com/image7.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user8",
+    email: "user8@example.com",
+    password: "hashedpassword8",
+    profile: {
+      firstName: "Frank",
+      lastName: "Garcia",
+      birthDate: ISODate("1993-08-08"),
+      bio: "Foodie.",
+      profilePictureUrl: "http://example.com/image8.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user9",
+    email: "user9@example.com",
+    password: "hashedpassword9",
+    profile: {
+      firstName: "Grace",
+      lastName: "Martinez",
+      birthDate: ISODate("1991-09-09"),
+      bio: "Nature lover.",
+      profilePictureUrl: "http://example.com/image9.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user10",
+    email: "user10@example.com",
+    password: "hashedpassword10",
+    profile: {
+      firstName: "Hank",
+      lastName: "Lopez",
+      birthDate: ISODate("1992-10-10"),
+      bio: "Gamer.",
+      profilePictureUrl: "http://example.com/image10.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user11",
+    email: "user11@example.com",
+    password: "hashedpassword11",
+    profile: {
+      firstName: "Ivy",
+      lastName: "Thomas",
+      birthDate: ISODate("1990-11-11"),
+      bio: "Art lover.",
+      profilePictureUrl: "http://example.com/image11.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user12",
+    email: "user12@example.com",
+    password: "hashedpassword12",
+    profile: {
+      firstName: "Jack",
+      lastName: "Hernandez",
+      birthDate: ISODate("1989-12-12"),
+      bio: "Sports fan.",
+      profilePictureUrl: "http://example.com/image12.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user13",
+    email: "user13@example.com",
+    password: "hashedpassword13",
+    profile: {
+      firstName: "Kate",
+      lastName: "Moore",
+      birthDate: ISODate("1988-01-13"),
+      bio: "Dog lover.",
+      profilePictureUrl: "http://example.com/image13.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user14",
+    email: "user14@example.com",
+    password: "hashedpassword14",
+    profile: {
+      firstName: "Liam",
+      lastName: "Jackson",
+      birthDate: ISODate("1991-02-14"),
+      bio: "Sci-fi nerd.",
+      profilePictureUrl: "http://example.com/image14.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user15",
+    email: "user15@example.com",
+    password: "hashedpassword15",
+    profile: {
+      firstName: "Mia",
+      lastName: "White",
+      birthDate: ISODate("1992-03-15"),
+      bio: "Yoga enthusiast.",
+      profilePictureUrl: "http://example.com/image15.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user16",
+    email: "user16@example.com",
+    password: "hashedpassword16",
+    profile: {
+      firstName: "Noah",
+      lastName: "Harris",
+      birthDate: ISODate("1989-04-16"),
+      bio: "Coffee addict.",
+      profilePictureUrl: "http://example.com/image16.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user17",
+    email: "user17@example.com",
+    password: "hashedpassword17",
+    profile: {
+      firstName: "Olivia",
+      lastName: "Martin",
+      birthDate: ISODate("1995-05-17"),
+      bio: "Fashionista.",
+      profilePictureUrl: "http://example.com/image17.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user18",
+    email: "user18@example.com",
+    password: "hashedpassword18",
+    profile: {
+      firstName: "Paul",
+      lastName: "Thompson",
+      birthDate: ISODate("1993-06-18"),
+      bio: "Chef.",
+      profilePictureUrl: "http://example.com/image18.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user19",
+    email: "user19@example.com",
+    password: "hashedpassword19",
+    profile: {
+      firstName: "Quinn",
+      lastName: "Clark",
+      birthDate: ISODate("1991-07-19"),
+      bio: "Film buff.",
+      profilePictureUrl: "http://example.com/image19.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    username: "user20",
+    email: "user20@example.com",
+    password: "hashedpassword20",
+    profile: {
+      firstName: "Rachel",
+      lastName: "Lewis",
+      birthDate: ISODate("1988-08-20"),
+      bio: "Guitarist.",
+      profilePictureUrl: "http://example.com/image20.jpg"
+    },
+    followers: [],
+    following: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  }
+]);
+
+'0': ObjectId("674271d3709a6a1e570bf385"),
+    '1': ObjectId("674271d3709a6a1e570bf386"),
+    '2': ObjectId("674271d3709a6a1e570bf387"),
+    '3': ObjectId("674271d3709a6a1e570bf388"),
+    '4': ObjectId("674271d3709a6a1e570bf389"),
+    '5': ObjectId("674271d3709a6a1e570bf38a"),
+    '6': ObjectId("674271d3709a6a1e570bf38b"),
+    '7': ObjectId("674271d3709a6a1e570bf38c"),
+    '8': ObjectId("674271d3709a6a1e570bf38d"),
+    '9': ObjectId("674271d3709a6a1e570bf38e"),
+    '10': ObjectId("674271d3709a6a1e570bf38f"),
+    '11': ObjectId("674271d3709a6a1e570bf390"),
+    '12': ObjectId("674271d3709a6a1e570bf391"),
+    '13': ObjectId("674271d3709a6a1e570bf392"),
+    '14': ObjectId("674271d3709a6a1e570bf393"),
+    '15': ObjectId("674271d3709a6a1e570bf394"),
+    '16': ObjectId("674271d3709a6a1e570bf395"),
+    '17': ObjectId("674271d3709a6a1e570bf396"),
+    '18': ObjectId("674271d3709a6a1e570bf397"),
+    '19': ObjectId("674271d3709a6a1e570bf398")
+
+db.Publicaciones.insertMany([
+  {
+    userId: ObjectId("674271d3709a6a1e570bf385"),
+    content: "This is my first post!",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf386"),
+    content: "Exploring the beautiful city of Bogotá!",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/bogota.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf387"),
+    content: "Just finished reading an amazing book. Highly recommend!",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf388"),
+    content: "Cooking my favorite dish today. Yum!",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/dish.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf389"),
+    content: "Morning run by the beach. Feeling great!",
+    media: [
+      {
+        type: "video",
+        url: "http://example.com/run.mp4"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38a"),
+    content: "Attending an awesome tech conference.",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38b"),
+    content: "Coffee time at my favorite cafe.",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/cafe.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38c"),
+    content: "Check out my latest artwork!",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/artwork.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38d"),
+    content: "Hiking in the mountains. What a view!",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/mountains.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38e"),
+    content: "Loving this new game! So addictive.",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38f"),
+    content: "Spending the day at the zoo. So much fun!",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/zoo.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf390"),
+    content: "Just adopted a cute puppy!",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/puppy.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf391"),
+    content: "Celebrating my birthday with friends and family.",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/birthday.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf392"),
+    content: "Trying out a new recipe tonight.",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf393"),
+    content: "Watching the sunset. Absolutely beautiful.",
+    media: [
+      {
+        type: "image",
+        url: "http://example.com/sunset.jpg"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf394"),
+    content: "Attended an amazing concert last night!",
+    media: [
+      {
+        type: "video",
+        url: "http://example.com/concert.mp4"
+      }
+    ],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf395"),
+    content: "Weekend getaway to the countryside.",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf396"),
+    content: "Learning to play the guitar. Loving it so far!",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf397"),
+    content: "First day at my new job. Exciting times ahead!",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf398"),
+    content: "Enjoying a quiet evening reading a book.",
+    media: [],
+    likes: [],
+    comments: [],
+    createdAt: ISODate(),
+    updatedAt: ISODate()
+  }
+]);
+
+db.Mensajes.insertMany([
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf398"),
+    receiverId: ObjectId("674271d3709a6a1e570bf395"),
+    message: "Hello! How are you?",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf385"),
+    receiverId: ObjectId("674271d3709a6a1e570bf386"),
+    message: "Hey, how's it going?",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf386"),
+    receiverId: ObjectId("674271d3709a6a1e570bf387"),
+    message: "Are you coming to the party tonight?",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf387"),
+    receiverId: ObjectId("674271d3709a6a1e570bf388"),
+    message: "I loved your latest post!",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf388"),
+    receiverId: ObjectId("674271d3709a6a1e570bf389"),
+    message: "Can we reschedule our meeting?",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf389"),
+    receiverId: ObjectId("674271d3709a6a1e570bf38a"),
+    message: "Happy Birthday!",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf38a"),
+    receiverId: ObjectId("674271d3709a6a1e570bf38b"),
+    message: "Let's catch up sometime.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf38b"),
+    receiverId: ObjectId("674271d3709a6a1e570bf38c"),
+    message: "Did you get my last message?",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf38c"),
+    receiverId: ObjectId("674271d3709a6a1e570bf38d"),
+    message: "Thank you for the gift!",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf38d"),
+    receiverId: ObjectId("674271d3709a6a1e570bf38e"),
+    message: "Good morning!",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf38e"),
+    receiverId: ObjectId("674271d3709a6a1e570bf38f"),
+    message: "Let's meet at the usual place.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf38f"),
+    receiverId: ObjectId("674271d3709a6a1e570bf390"),
+    message: "I'll be there in 10 minutes.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf390"),
+    receiverId: ObjectId("674271d3709a6a1e570bf391"),
+    message: "Can you help me with my homework?",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf391"),
+    receiverId: ObjectId("674271d3709a6a1e570bf392"),
+    message: "Let's go for a hike this weekend.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf392"),
+    receiverId: ObjectId("674271d3709a6a1e570bf393"),
+    message: "Just wanted to say hi.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf393"),
+    receiverId: ObjectId("674271d3709a6a1e570bf394"),
+    message: "Thank you for your help.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf394"),
+    receiverId: ObjectId("674271d3709a6a1e570bf395"),
+    message: "I'll see you soon.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf395"),
+    receiverId: ObjectId("674271d3709a6a1e570bf396"),
+    message: "Check out this link.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf396"),
+    receiverId: ObjectId("674271d3709a6a1e570bf397"),
+    message: "I'm running late.",
+    createdAt: ISODate(),
+    read: false
+  },
+  {
+    senderId: ObjectId("674271d3709a6a1e570bf397"),
+    receiverId: ObjectId("674271d3709a6a1e570bf398"),
+    message: "Let's grab lunch tomorrow.",
+    createdAt: ISODate(),
+    read: false
+  }
+]);
+
+db.Notificaciones.insertMany([
+  {
+    userId: ObjectId("674271d3709a6a1e570bf398"),
+    type: "like",
+    details: "User2 liked your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf385"),
+    type: "like",
+    details: "User2 liked your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf386"),
+    type: "comment",
+    details: "User3 commented on your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf387"),
+    type: "follow",
+    details: "User4 started following you.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf388"),
+    type: "message",
+    details: "User5 sent you a message.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf389"),
+    type: "like",
+    details: "User6 liked your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38a"),
+    type: "comment",
+    details: "User7 commented on your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38b"),
+    type: "follow",
+    details: "User8 started following you.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38c"),
+    type: "message",
+    details: "User9 sent you a message.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38d"),
+    type: "like",
+    details: "User10 liked your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38e"),
+    type: "comment",
+    details: "User11 commented on your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf38f"),
+    type: "follow",
+    details: "User12 started following you.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf390"),
+    type: "message",
+    details: "User13 sent you a message.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf391"),
+    type: "like",
+    details: "User14 liked your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf392"),
+    type: "comment",
+    details: "User15 commented on your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf393"),
+    type: "follow",
+    details: "User16 started following you.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf394"),
+    type: "message",
+    details: "User17 sent you a message.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf395"),
+    type: "like",
+    details: "User18 liked your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf396"),
+    type: "comment",
+    details: "User19 commented on your post.",
+    read: false,
+    createdAt: ISODate()
+  },
+  {
+    userId: ObjectId("674271d3709a6a1e570bf397"),
+    type: "follow",
+    details: "User20 started following you.",
+    read: false,
+    createdAt: ISODate()
+  }
+]);
+
+db.Solicitud_Amistad.insertMany([
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf398"),
+    toUserId: ObjectId("674271d3709a6a1e570bf385"),
+    status: "pending",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf385"),
+    toUserId: ObjectId("674271d3709a6a1e570bf386"),
+    status: "pending",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf386"),
+    toUserId: ObjectId("674271d3709a6a1e570bf387"),
+    status: "accepted",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf387"),
+    toUserId: ObjectId("674271d3709a6a1e570bf388"),
+    status: "rejected",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf388"),
+    toUserId: ObjectId("674271d3709a6a1e570bf389"),
+    status: "pending",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf389"),
+    toUserId: ObjectId("674271d3709a6a1e570bf38a"),
+    status: "accepted",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf38a"),
+    toUserId: ObjectId("674271d3709a6a1e570bf38b"),
+    status: "rejected",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf38b"),
+    toUserId: ObjectId("674271d3709a6a1e570bf38c"),
+    status: "pending",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf38c"),
+    toUserId: ObjectId("674271d3709a6a1e570bf38d"),
+    status: "accepted",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf38d"),
+    toUserId: ObjectId("674271d3709a6a1e570bf38e"),
+    status: "rejected",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf38e"),
+    toUserId: ObjectId("674271d3709a6a1e570bf38f"),
+    status: "pending",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf38f"),
+    toUserId: ObjectId("674271d3709a6a1e570bf390"),
+    status: "accepted",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf390"),
+    toUserId: ObjectId("674271d3709a6a1e570bf391"),
+    status: "rejected",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf391"),
+    toUserId: ObjectId("674271d3709a6a1e570bf392"),
+    status: "pending",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf392"),
+    toUserId: ObjectId("674271d3709a6a1e570bf393"),
+    status: "accepted",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf393"),
+    toUserId: ObjectId("674271d3709a6a1e570bf394"),
+    status: "rejected",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf394"),
+    toUserId: ObjectId("674271d3709a6a1e570bf395"),
+    status: "pending",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf395"),
+    toUserId: ObjectId("674271d3709a6a1e570bf396"),
+    status: "accepted",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf396"),
+    toUserId: ObjectId("674271d3709a6a1e570bf397"),
+    status: "rejected",
+    createdAt: ISODate()
+  },
+  {
+    fromUserId: ObjectId("674271d3709a6a1e570bf397"),
+    toUserId: ObjectId("674271d3709a6a1e570bf398"),
+    status: "pending",
+    createdAt: ISODate()
+  }
+]);
+
+CONSULTAS
+db.Usuarios.find().pretty()
+db.Usuarios.find({
+  "profile.birthDate": {
+    $gte: ISODate("1993-01-01T00:00:00Z"),
+    $lte: ISODate("1993-12-31T23:59:59Z")
+  }
+}).pretty();
+db.Solicitud_Amistad.updateOne(
+  { 
+    fromUserId: ObjectId("674271d3709a6a1e570bf397"), 
+    toUserId: ObjectId("674271d3709a6a1e570bf398"),
+    status: "pending"
+  },
+  { 
+    $set: { status: "accepted" } 
+  }
+);
+db.Publicaciones.deleteOne({
+  userId: ObjectId("674271d3709a6a1e570bf392"),
+  content: "Trying out a new recipe tonight."
+});
+db.Usuarios.aggregate([
+  {
+    $group: {
+      _id: { $year: "$profile.birthDate" },
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { _id: 1 }
+  }
+]);
+db.Solicitud_Amistad.countDocuments({ status: "rejected" });
+db.Usuarios.aggregate([
+  {
+    $addFields: {
+      age: {
+        $subtract: [
+          { $year: new Date() },
+          { $year: "$profile.birthDate" }
+        ]
+      }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      averageAge: { $avg: "$age" }
+    }
+  }
+]);
+db.Notificaciones.aggregate([
+  {
+    $facet: {
+      totalNotifications: [{ $count: "total" }],
+      likeNotifications: [
+        { $match: { type: "like" } },
+        { $count: "likeCount" }
+      ]
+    }
+  },
+  {
+    $project: {
+      total: { $arrayElemAt: ["$totalNotifications.total", 0] },
+      likes: { $arrayElemAt: ["$likeNotifications.likeCount", 0] },
+      averageLikes: {
+        $cond: {
+          if: { $eq: [{ $arrayElemAt: ["$totalNotifications.total", 0] }, 0] },
+          then: 0,
+          else: {
+            $divide: [
+              { $arrayElemAt: ["$likeNotifications.likeCount", 0] },
+              { $arrayElemAt: ["$totalNotifications.total", 0] }
+            ]
+          }
+        }
+      }
+    }
+  }
+]);
+
+
+
